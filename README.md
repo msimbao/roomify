@@ -1,9 +1,14 @@
-# roomify
-Uses machine learning to play music from sound cloud based on what room a user is in.
+# SoundScapes
 
- Project Title
+A Simple App for Linux, Windows and Mac that gives a GUI to play music from a particular genre using Machine Learning depending on where the user is.
 
-One Paragraph of project description goes here
+I made this to be a free "radio" for our makerspace to serve calming music to our visitors and clients whenever they enter the space.
+
+It saves and plays the music depending on the area that the user is in. It uses Machine Learning using Scikit Learn to determine the position of the user via indoor localization then uses the Sound Cloud Library to select a random song and play that song. 
+
+It also comes with calming background images to accompany the music.
+
+In Cae you want to make changes to the music playlist selection or Images, you can do so using the GUI
 
 ## Getting Started
 
@@ -13,43 +18,45 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them
 
-```
-Give examples
-```
+* Kivy
+* Sound Cloud Library
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+To install the prerequisites, you can go to their project pages to install them properly. The basic installation that I use is simply:
 
 ```
-Give the example
+#Kivy needed to run GUI
+sudo pip install kivy
+
+#Sound Cloud Library, a third party package that downloads music from Sound Cloud's API while by passing some limitations
+sudo pip install sclib
 ```
 
-And repeat
+### Running the Program
+
+To Run the Program, simply Clone the Repo and change directory to the repository's main file.
+
+Then in the terminal type:
 
 ```
-until finished
+sudo python3 main.py
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Below Is a picture showing the GUI Starting if everything has gone well.
 
-## Running the tests
 
-Explain how to run the automated tests for this system
+### Learning the Rooms:
 
-### Break down into end to end tests
-
-Explain what these tests test and why
+To Learn the Room and set the Genre
 
 ```
 Give an example
 ```
 
-### And coding style tests
+### Playing Music
 
-Explain what these tests test and why
+To Play Music, Just Press the Play Icon and the Player will automatically start
 
 ```
 Give an example
@@ -57,27 +64,28 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+To Deploy the System, i've been trying (Without success) to get it running on Android devices :(
+
+Otherwise, the Windows Executable is available for download and is set to run on any windows machine.
+
+I also have an IOS executable in the making.
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [whereami](http://www.dropwizard.io/1.0.2/docs/) - Machine Learning Indoor Localization
+* [sclib](https://maven.apache.org/) - Download Music
+* [kivy](https://rometools.github.io/rome/) - Used to generate GUI 
+* [bs4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) - Used to Scrape Web
+* [pickle](https://docs.python.org/3/library/pickle.html) - Used to serialize object structures
 
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Mphatso Simbao** - *Initial work* 
 
 ## License
 
@@ -85,6 +93,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Pascal van Kooten
+* Ian Murphy
