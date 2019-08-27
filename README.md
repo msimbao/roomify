@@ -78,10 +78,6 @@ I also have an IOS executable in the making.
 * [bs4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) - Used to Scrape Web
 * [pickle](https://docs.python.org/3/library/pickle.html) - Used to serialize object structures
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
 
 ## Authors
 
@@ -89,7 +85,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU GENERAL PUBLIC LICENSE
 
 ## Acknowledgments
 
