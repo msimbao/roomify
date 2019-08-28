@@ -1,0 +1,285 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+    FourthWindow:
+    FifthWindow:
+
+<MainWindow>:
+    name:"main"
+
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'
+
+        Image:
+            source: 'images/circleback.jpeg'
+            size: self.texture_size
+
+        FloatLayout:
+            Button:
+                size_hint: 0.25,0.07
+                text:'Begin'
+                font_size:20
+                pos_hint:{"center_x":0.5,"center_y":0.5}
+                border: -4,-4,-4,-4
+                background_normal:'images/transparent.png'
+                background_down:'images/transparent.png'
+                on_release:
+                    app.root.current = "second"
+                    root.manager.transition.direction = "left"
+            
+            Label:
+                text: "Roomify"
+                font_size:30
+                pos_hint:{"center_x":0.5,"center_y":0.9}
+                font_name: "Fredoka"
+
+            Label:
+                text: "Listen to a random song based on what room you’re in what genre of music you’d like in that room"
+                font_size:15
+                pos_hint:{"center_x":0.5,"y":0.05}
+                font_name:"Avenir"
+                text_size: self.width, None
+                size_hint_y:None
+                size_hint_x:0.8
+                height:self.texture_size[1]
+                halign:'center'
+                valign:'center'
+
+
+<SecondWindow>:
+    name:"second"
+
+    FloatLayout:
+
+        Image:
+            source: 'images/circleback.jpeg'
+            size: self.texture_size
+            font_size:20
+
+        Label:
+            text: "To Use"
+            font_size:30
+            pos_hint:{"center_x":0.5,"center_y":0.9}
+            font_name: "Fredoka"
+
+        Label:
+            text: "To start, type in your room name. The click select genre to save the room and select the genre of music you want in that room. Add more rooms as you go and reinforce the rooms you already have"
+            font_size:15
+            pos_hint:{"center_x":0.5,"y":0.08}
+            font_name:"Avenir"
+            text_size: self.width, None
+            size_hint_y:None
+            size_hint_x:0.8
+            height:self.texture_size[1]
+            halign:'center'                
+            valign:'center'
+
+        Button:
+            size_hint: 0.25,0.07
+            text:'Next'
+            font_size:20
+            pos_hint:{"center_x":0.5,"center_y":0.5}
+            border: -4,-4,-4,-4
+            background_normal:'images/transparent.png'
+            background_down:'images/transparent.png'
+            on_release:
+                app.root.current = "third"
+                root.manager.transition.direction = "left"
+          
+<ThirdWindow>
+    name:"third"
+    room:room
+
+    FloatLayout:
+
+        Image:
+            source: 'images/bubblebg.jpeg'
+            size: self.texture_size
+
+        TextInput:
+            id: room
+            size_hint: 0.7,0.1
+            pos_hint:{"center_x":0.5,"center_y":0.5}
+            font_size:15
+            hint_text: 'Room Name'
+            background_color:[0,0,0,0]
+            foreground_color:[1,1,1,1]
+            padding_x: [30,30]
+            cursor_color: 1,1,1,1
+            multinline:False
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Line:
+                    points: self.x + 20, self.y, self.x + self.width - 20, self.y
+                    width: 1
+
+        Button:
+            size_hint: 0.35,0.07
+            text:'Pick Genre'
+            font_size:20
+            font_color:[1,1,1,1]
+            pos_hint:{"center_x":0.5,"y":0.3}
+            border: -4,-4,-4,-4
+            background_normal:'images/LargeEmptyButton.png'
+            background_down:'images/LargeEmptyButton.png'
+            on_press:
+            on_release:
+                root.saveRoom()  
+                app.root.current = "Fourth"
+                root.manager.transition.direction = "left"
+
+        Button:
+            size_hint: 0.6,0.07
+            text:'Go To Music Player'
+            font_size:20
+            pos_hint:{"center_x":0.5,"y":0.1}
+            border: -4,-4,-4,-4
+            background_normal:'images/LargeEmptyButton.png'
+            background_down:'images/LargeEmptyButton.png'
+            on_release:
+                app.root.current = "fifth"
+                root.manager.transition.direction = "left"
+   
+
+<FourthWindow>
+    name:"Fourth"
+
+    FloatLayout:
+        Button:
+            size_hint: 0.35,0.07
+            text:'Classical'
+            font_size:20
+            font_color:[1,1,1,1]
+            pos_hint:{"center_x":0.5,"y":0.4}
+            border: -4,-4,-4,-4
+            background_color:[1,0.35,.2,1]
+            background_normal:'images/LargeEmptyButton.png'
+            on_release:
+                root.record()
+                genre = "classical"
+                app.root.current = "third"
+                root.manager.transition.direction = "left"
+
+        Button:
+            size_hint: 0.35,0.07
+            text:'Electronic'
+            font_size:20
+            font_color:[1,1,1,1]
+            pos_hint:{"center_x":0.5,"y":0.5}
+            border: -4,-4,-4,-4
+            background_color:[.42,.39,.58,1]
+            background_normal:'images/LargeEmptyButton.png'
+            on_release:
+                genre = "electronic"
+                app.root.current = "Fourth"
+                root.manager.transition.direction = "left"
+
+        Button:
+            size_hint: 0.35,0.07
+            text:'Urban'
+            font_size:20
+            font_color:[1,1,1,1]
+            pos_hint:{"center_x":0.5,"y":0.6}
+            border: -4,-4,-4,-4
+            background_color:[.68,0.79,.15,1]
+            background_normal:'images/LargeEmptyButton.png'
+            on_release:
+                genre = "urban"
+                app.root.current = "Fourth"
+                root.manager.transition.direction = "left"
+
+        Button:
+            size_hint: 0.35,0.07
+            text:'Folk'
+            font_size:20
+            font_color:[1,1,1,1]
+            pos_hint:{"center_x":0.5,"y":0.7}
+            border: -4,-4,-4,-4
+            background_color:[.1,.51,.77,1]
+            background_normal:'images/LargeEmptyButton.png'
+            on_release:
+                genre = "folk"
+                app.root.current = "Fourth"
+                root.manager.transition.direction = "left"
+
+        Button:
+            size_hint: 0.35,0.07
+            text:'Nature'
+            font_size:20
+            font_color:[1,1,1,1]
+            pos_hint:{"center_x":0.5,"y":0.8}
+            border: -4,-4,-4,-4
+            background_color:[1,0.35,.37,1]
+            background_normal:'images/LargeEmptyButton.png'
+            on_release:
+                genre = "nature"
+                app.root.current = "Fourth"
+                root.manager.transition.direction = "left"
+
+
+        Button:
+            size_hint: 0.35,0.07
+            text:'Back'
+            font_size:20
+            font_color:[1,1,1,1]
+            pos_hint:{"center_x":0.5,"y":0.1}
+            border: -4,-4,-4,-4
+            background_color:[1,1,1,1]
+            background_normal:'images/LargeEmptyButton.png'
+            on_release:
+                app.root.current = "third"
+                root.manager.transition.direction = "right"
+
+<FifthWindow>
+    name:"fifth"
+
+    FloatLayout:
+        Image:
+            source: 'images/moonback.jpg'
+            size: self.texture_size
+
+        Label:
+            id:"room"
+            text: "Room"
+            font_size:30
+            pos_hint:{"center_x":0.5,"center_y":0.9}
+            font_name: "Fredoka"
+
+        Label:
+            id:"genre"
+            text: "Genre"
+            font_size:30
+            pos_hint:{"center_x":0.5,"center_y":0.8}
+            font_name: "Fredoka"
+
+        Button:
+            size_hint: 0.35,0.07
+            text:'Back'
+            font_size:20
+            font_color:[1,1,1,1]
+            pos_hint:{"center_x":0.3,"y":0.05}
+            border: -4,-4,-4,-4
+            background_color:[1,1,1,1]
+            background_normal:'images/LargeEmptyButton.png'
+            on_release:
+                app.root.current = "third"
+                root.manager.transition.direction = "right"
+
+        Button:
+            size_hint: 0.35,0.07
+            text:'Correct'
+            font_size:20
+            font_color:[1,1,1,1]
+            pos_hint:{"center_x":0.7,"y":0.05}
+            border: -4,-4,-4,-4
+            background_color:[1,1,1,1]
+            background_normal:'images/LargeEmptyButton.png'
+            on_release:
+                app.root.current = "third"
+                root.manager.transition.direction = "right"
+
+
