@@ -13,9 +13,11 @@ from sklearn.feature_extraction import DictVectorizer
 from sklearn.pipeline import make_pipeline
 
 from tqdm import tqdm
+import glob
 import json
 from collections import Counter
 from access_points import get_scanner
+import random
 
 
 # ============================================================================
@@ -321,7 +323,7 @@ Builder.load_string("""
             
             Button:
                 text: '' #setting
-                on_press: root.manager.current = 'menu'
+                on_press: root.manager.current = 'add'
                 font_size:70
                 font_name:"Fredoka"
                 background_normal:'images/transparent.png'
@@ -330,7 +332,8 @@ Builder.load_string("""
                 
             Button:
                 text: '' #play
-                on_press: root.manager.current = 'start'
+                on_press: 
+                    root.manager.current = 'play'
                 font_size:70
                 font_name:"Fredoka"
                 background_normal:'images/transparent.png'
@@ -339,12 +342,62 @@ Builder.load_string("""
                 
             Button:
                 text: '' #exit
-                on_press: App.get_running_app().stop()
+                on_press: app.get_running_app().stop()
                 font_size:70
                 font_name:"Fredoka"
                 background_normal:'images/transparent.png'
                 background_down:'images/transparent.png'
                 color: 0,0,0,1 #
+                
+<PlayScreen>:
+    background:background
+    FloatLayout:
+                
+        Image:
+            id:background
+            source: 'backgrounds/float.jpg'
+            size: self.texture_size
+        
+        Button:
+            text: ''
+            on_press: 
+                root.changeBackground()
+            font_size:50
+            font_name:"Fredoka"
+            background_down:'images/play.png'
+            background_normal:'images/play.png'
+            color: 1,1,1,1 #
+            size_hint: 0.05,0.05
+            border: -3,-3,-3,-3
+            pos_hint:{"center_x":0.5,"center_y":0.06}
+            
+        Button:
+            text: ''
+            on_press: 
+                root.manager.current = 'menu'
+                root.changeBackground()
+            font_size:50
+            font_name:"Fredoka"
+            background_down:'images/previous.png'
+            background_normal:'images/previous.png'
+            color: 1,1,1,1 #
+            size_hint: 0.05,0.05
+            border: -3,-3,-3,-3
+            pos_hint:{"center_x":0.4,"center_y":0.06}
+            
+        Button:
+            text: ''
+            on_press: 
+                root.changeBackground()
+            font_size:50
+            font_name:"Fredoka"
+            background_down:'images/pause.png'
+            background_normal:'images/pause.png'
+            color: 1,1,1,1 #
+            size_hint: 0.05,0.05
+            border: -3,-3,-3,-3
+            pos_hint:{"center_x":0.6,"center_y":0.06}
+            
 """)
 
 
@@ -366,15 +419,42 @@ class SettingsScreen(Screen):
 class MenuScreen(Screen):
     pass
 
+class AddScreen(Screen):
+    pass
+
+class GenreScreen(Screen):
+    pass
+
+class PlayScreen(Screen):
+    background = ObjectProperty(None)
+
+    def changeBackground(self):
+        """Simple Function to Change the Background of the App when a new song loads or on back press"""
+        self.path = "background/"
+        self.bgList = (glob.glob("backgrounds/*"))
+        self.randomSelect = random.choice(self.bgList)
+        self.fullPath = self.randomSelect
+        self.background.source=self.fullPath
+
+    def pauseBackground(self):
+        """Simple Function to Change the Background of the App To Pause"""
+        self.background.source = "backgrounds/paused.png"
+
+    def selectSong(self):
+        """Simple Function to select a playlist and select a random song from that playlist, then play it as a thread"""
+
+
 # Create the screen manager
 sm = ScreenManager()
 sm.add_widget(StartScreen(name='start'))
 sm.add_widget(SettingsScreen(name='next'))
 sm.add_widget(MenuScreen(name='menu'))
-sm.add_widget(SettingsScreen(name='genre'))
-sm.add_widget(SettingsScreen(name='play'))
+sm.add_widget(AddScreen(name='add'))
+sm.add_widget(GenreScreen(name='genre'))
+sm.add_widget(PlayScreen(name='play'))
 
 class TestApp(App):
+
 
     def build(self):
         return sm
