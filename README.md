@@ -2,6 +2,8 @@
 
 A Simple App for Linux, Windows and Mac that gives a GUI to play music from a particular genre using Machine Learning depending on where the user is.
 
+(Screen Shot 2019-08-30 at 3.10.03 PM.png)
+
 I made this to be a free "radio" for our makerspace to serve calming music to our visitors and clients whenever they enter the space.
 
 It saves and plays the music depending on the area that the user is in. It uses Machine Learning using Scikit Learn to determine the position of the user via indoor localization then uses the Sound Cloud Library to select a random song and play that song. 
