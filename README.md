@@ -62,9 +62,10 @@ To Play Music, Just Press the Play Icon and the Player will automatically start
 
 It uses Pygame to play the music
 
+![Screenshot](https://github.com/msimbao/soundscapes/blob/master/screen4.png)
 ![Screenshot](https://github.com/msimbao/soundscapes/blob/master/screen3.png)
 ![Screenshot](https://github.com/msimbao/soundscapes/blob/master/screen2.png)
-![Screenshot](https://github.com/msimbao/soundscapes/blob/master/screen4.png)
+
 
 ## Deployment
 
