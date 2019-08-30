@@ -10,7 +10,7 @@ It saves and plays the music depending on the area that the user is in. It uses 
 
 It also comes with calming background images to accompany the music.
 
-In Cae you want to make changes to the music playlist selection or Images, you can do so using the GUI
+In Case you want to make changes to the music playlist selection or Images, you can do so using the GUI
 
 ## Getting Started
 
@@ -60,9 +60,11 @@ Give an example
 
 To Play Music, Just Press the Play Icon and the Player will automatically start
 
-```
-Give an example
-```
+It uses Pygame to play the music
+
+![Screenshot](https://github.com/msimbao/soundscapes/blob/master/screen3.png)
+![Screenshot](https://github.com/msimbao/soundscapes/blob/master/screen2.png)
+![Screenshot](https://github.com/msimbao/soundscapes/blob/master/screen4.png)
 
 ## Deployment
 
