@@ -516,7 +516,9 @@ Builder.load_string("""
             
             Button:
                 text: '' #setting
-                on_press: root.manager.current = 'add'
+                on_press: 
+                    root.manager.current = 'add'
+                    root.setNature()
                 font_size:70
                 font_name:"Fredoka"
                 background_normal:'images/transparent.png'
@@ -526,7 +528,8 @@ Builder.load_string("""
             Button:
                 text: '' #play
                 on_press: 
-                    root.manager.current = 'play'
+                    root.manager.current = 'add'
+                    root.setClassical()
                 font_size:70
                 font_name:"Fredoka"
                 background_normal:'images/transparent.png'
@@ -535,7 +538,9 @@ Builder.load_string("""
                 
             Button:
                 text: '' #exit
-                on_press: app.get_running_app().stop()
+                on_press: 
+                    root.manager.current = 'add'
+                    root.setMotivational()
                 font_size:70
                 font_name:"Fredoka"
                 background_normal:'images/transparent.png'
@@ -573,10 +578,9 @@ class AddScreen(Screen):
         roomName = name
 
 class GenreScreen(Screen):
-    
 
     global modelDict
-    
+
     with open('data.json', 'r') as fp:
         modelDict = json.load(fp)
 
