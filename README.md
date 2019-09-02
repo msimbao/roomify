@@ -10,7 +10,13 @@ It saves and plays the music depending on the area that the user is in. It uses 
 
 It also comes with calming background images to accompany the music.
 
-In Case you want to make changes to the music playlist selection or Images, you can do so using the GUI
+In Case you want to make changes to the music playlist selection or Images, you can do so by rewiriting the script
+
+![Screenshot](https://github.com/msimbao/soundscapes/blob/master/screen5.png)
+
+## Things I Learnt
+
+
 
 ## Getting Started
 
