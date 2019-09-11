@@ -83,9 +83,9 @@ I also have an IOS executable in the making.
 
 ## Built With
 
-* [whereami](http://www.dropwizard.io/1.0.2/docs/) - Machine Learning Indoor Localization
-* [sclib](https://maven.apache.org/) - Download Music
-* [kivy](https://rometools.github.io/rome/) - Used to generate GUI 
+* [whereami](https://github.com/kootenpv/whereami) - Machine Learning Indoor Localization
+* [sclib](https://pypi.org/project/soundcloud-lib/) - Download Music
+* [kivy](https://kivy.org/) - Used to generate GUI 
 * [bs4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) - Used to Scrape Web
 * [pickle](https://docs.python.org/3/library/pickle.html) - Used to serialize object structures
 
